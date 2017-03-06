@@ -11,4 +11,20 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Artists" />
     </group>
+
+    <item android:title="Section">
+        <menu>
+            <item
+                android:id="@+id/feedback"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Feedback"></item>
+
+            <item
+                android:id="@+id/contact_us"
+                android:title="Contact Us"
+                android:icon="@drawable/ic_menu_share"/>
+        </menu>
+    </item>
+
+
 </menu>
