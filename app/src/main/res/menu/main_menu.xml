@@ -15,9 +15,9 @@
     <item android:title="Section">
         <menu>
             <item
-                android:id="@+id/feedback"
+                android:id="@+id/settings"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Feedback"></item>
+                android:title="Settings"></item>
 
             <item
                 android:id="@+id/contact_us"

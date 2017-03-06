@@ -1,7 +1,9 @@
 package com.example.vickypatel.navigationdrawerwithfragments;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity
         //load fragment
         if(savedInstanceState == null){
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.add(R.id.content_main, new ArtistsFragment());
+            fragmentTransaction.add(R.id.content_main, new HomeFragment());
             fragmentTransaction.commit();
         }
 
@@ -66,14 +68,17 @@ public class MainActivity extends AppCompatActivity
             case R.id.home:
                 mToast = Toast.makeText(this, "Home", Toast.LENGTH_LONG);
                 mToolbar.setTitle("Home");
+                changeFragment(new HomeFragment());
                 break;
             case R.id.artists:
                 mToast= Toast.makeText(this, "Artists", Toast.LENGTH_LONG);
                 mToolbar.setTitle("Artists");
+                changeFragment(new ArtistsFragment());
                 break;
-            case R.id.feedback:
-                mToast = Toast.makeText(this, "Feedback", Toast.LENGTH_LONG);
-                mToolbar.setTitle("Feedback");
+            case R.id.settings:
+                mToast = Toast.makeText(this, "Settings", Toast.LENGTH_LONG);
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 break;
             case R.id.contact_us:
                 mToast = Toast.makeText(this, "Contact us", Toast.LENGTH_LONG);
@@ -87,4 +92,12 @@ public class MainActivity extends AppCompatActivity
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
+    public void changeFragment(Fragment fragment){
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.replace(R.id.content_main, fragment);
+        fragmentTransaction.commit();
+    }
+
 }
